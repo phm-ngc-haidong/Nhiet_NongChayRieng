@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#146B5E">
+    <meta name="color-scheme" content="light">
+    
+    <title>Nhiệt nóng chảy riêng của nước đá</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,700;1,900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=22">
+</head>
+
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="hero-index">
+                <b>Báo cáo thí nghiệm <i><u>Vật lí Nhiệt</u></i></b>
+            </div>
+
+            <h1>
+                <i>Nhiệt nóng chảy riêng của nước đá</i>
+            </h1>
+        </div>
+    </header>
+
+    <div class="notebook">
+        <section class="experiment active" id="exp-fixed">
+            <div class="exp-head">
+                <h2 class="exp-title">
+                    <span class="exp-num" aria-hidden="true">1</span>
+                    <span class="exp-title-text">
+                        <span class="exp-title-main">
+                            <i>Bảng báo cáo số liệu đã đo được của nhóm</i>
+                        </span>
+                    </span>
+                </h2>
+            </div>
+
+            <div class="grid-2col">
+                <div class="table-panel">
+                    <div class="table-scroll">
+                        <table id="fusion-table-fixed" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Lần</th>
+                                    <th>Công suất đun P<small>(W)</small></th>
+                                    <th>Thời gian đun Δt<small>(s)</small></th>
+                                    <th>Tổng khối lượng đầu m<sub>1</sub><small>(kg)</small></th>
+                                    <th>Tổng khối lượng sau m<sub>2</sub><small>(kg)</small></th>
+                                    <th>Khối lượng đá tan <span class="nw">Δm=m<sub>2</sub>-m<sub>1</sub></span><small>(kg)</small></th>
+                                    <th class="result-col">Nhiệt nóng chảy riêng λ<small>(J/kg)</small></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="summary" id="fusion-summary-fixed"></div>
+                </div>
+
+                <div class="calc-panel" id="calc-fixed"></div>
+
+                <div class="chart-panel">
+                    <div class="chart-head">
+                        <h3>Đồ thị λ theo 1/Δm</h3>
+                        <p class="formula">λ&nbsp;=&nbsp;P·Δt·<span class="frac"><span class="num">1</span><span class="den">Δm</span></span></p>
+                    </div>
+                    
+                    <div class="chart-canvas-wrap"><canvas id="fusion-chart-fixed"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="experiment active" id="exp-fusion">
+            <div class="exp-head">
+                <h2 class="exp-title">
+                    <span class="exp-num" aria-hidden="true">2</span>
+                    <span class="exp-title-text">
+                        <span class="exp-title-main">
+                            <i>Bảng số liệu đo</i>
+                        </span>
+                    </span>
+               </h2>
+            </div>
+
+            <div class="grid-2col">
+                <div class="table-panel">
+                    <div class="table-scroll">
+                        <table id="fusion-table" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Lần</th>
+                                    <th>Công suất đun P<small>(W)</small></th>
+                                    <th>Thời gian đun Δt<small>(s)</small></th>
+                                    <th>Tổng khối lượng đầu m<sub>1</sub><small>(kg)</small></th>
+                                    <th>Tổng khối lượng sau m<sub>2</sub><small>(kg)</small></th>
+                                    <th>Khối lượng đá tan <span class="nw">Δm=m<sub>2</sub>-m<sub>1</sub></span><small>(kg)</small></th>
+                                    <th class="result-col">Nhiệt nóng chảy riêng λ<small>(J/kg)</small></th>
+                                    <th class="del-col"></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-actions">
+                        <button class="btn btn-add" id="btn-add">+ Thêm lần đo</button>
+                        <button class="btn btn-ghost" id="btn-sample">Điền dữ liệu mẫu</button>
+                        <button class="btn btn-ghost btn-danger" id="btn-clear">Xóa bảng</button>
+                    </div>
+                    
+                    <div class="summary" id="fusion-summary"></div>
+                </div>
+
+                <div class="calc-panel" id="calc-editable"></div>
+
+                <div class="chart-panel">
+                    <div class="chart-head">
+                        <h3>Đồ thị λ theo 1/Δm</h3>
+                        <p class="formula">λ&nbsp;=&nbsp;P·Δt·<span class="frac"><span class="num">1</span><span class="den">Δm</span></span></p>
+                    </div>
+                    
+                    <div class="chart-canvas-wrap"><canvas id="fusion-chart"></canvas></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="credits">
+        <div class="credits-inner">
+            <section class="refs" aria-labelledby="refs-title">
+                <h2 class="credits-title" id="refs-title"><i>Phụ lục &amp; Phản hồi</i></h2>
+                <p class="refs-sub">Nhấn vào tài liệu hoặc quét mã QR để xem báo cáo, video, trang web và liên hệ với nhóm.</p>
+                <ul class="refs-list">
+                    <li class="ref-item">
+                        <div class="ref-head">
+                            <span class="ref-kind"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2.5h8l5 5V21.5H6z"/><path d="M14 2.5v5h5"/></svg>PDF</span>
+                            <span class="ref-label">Báo cáo Thực hành Thí nghiệm</span>
+                        </div>
+                        <a class="ref-tile ref-tile-pdf" href="nhiet-nong-chay-rieng.pdf" target="_blank" rel="noopener" aria-label="Mở file PDF Báo cáo Thực hành Thí nghiệm">
+                            <svg class="ref-pdf-icon" viewBox="0 0 64 80" aria-hidden="true" focusable="false">
+                                <path d="M8 2h32l16 16v58a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#fff" stroke="#146B5E" stroke-width="3" stroke-linejoin="round"/>
+                                <path d="M40 2v14a2 2 0 0 0 2 2h14" fill="none" stroke="#146B5E" stroke-width="3" stroke-linejoin="round"/>
+                                <rect x="14" y="40" width="36" height="16" rx="3" fill="#C9862F"/>
+                                <text x="32" y="52.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#fff" letter-spacing=".5">PDF</text>
+                                <path d="M16 26h14M16 32h22" stroke="#146B5E" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a class="ref-action" href="nhiet-nong-chay-rieng.pdf" target="_blank" rel="noopener">Mở tài liệu <span aria-hidden="true">↗</span></a>
+                    </li>
+
+                    <li class="ref-item">
+                        <div class="ref-head">
+                            <span class="ref-kind"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M10 8.3v7.4l6-3.7z" fill="currentColor" stroke="none"/></svg>Video</span>
+                            <span class="ref-label">Video Thực hành Thí nghiệm</span>
+                        </div>
+                        <div class="ref-tile ref-tile-qr">
+                            <img src="QR_vid_nongchayrieng.png" alt="Mã QR Video Thực hành Thí nghiệm" loading="lazy">
+                        </div>
+                        <span class="ref-action ref-action-scan">Quét mã QR</span>
+                    </li>
+                    
+                    
+                    <li class="ref-item">
+                        <div class="ref-head">
+                            <span class="ref-kind"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.2 3.4 3.2 14.6 0 18M12 3c-3.2 3.4-3.2 14.6 0 18"/></svg>Website</span>
+                            <span class="ref-label">Web Báo cáo Thực hành Thí nghiệm</span>
+                        </div>
+                        <div class="ref-tile ref-tile-qr">
+                            <img src="QR_web_nongchayrieng.png" alt="Mã QR Web Báo cáo Thực hành Thí nghiệm" loading="lazy">
+                        </div>
+                        <span class="ref-action ref-action-scan">Quét mã QR</span>
+                    </li>
+                
+                    <li class="ref-item">
+                        <div class="ref-head">
+                            <span class="ref-kind"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>Liên hệ</span>
+                            <span class="ref-label">Liên hệ Nhà sáng tạo</span>
+                        </div>
+                        <div class="ref-tile ref-tile-qr">
+                            <img src="QR_lienhe_nongchayrieng.png" alt="Mã QR Liên hệ Nhà sáng tạo" loading="lazy">
+                        </div>
+                        <span class="ref-action ref-action-scan">Quét mã QR</span>
+                    </li>
+                    
+                    <!-- Thêm tài liệu/QR khác: copy nguyên một khối <li class="ref-item"> ở trên,
+                         đổi loại (.ref-kind), tiêu đề (.ref-label) và đường dẫn ảnh <img src="..."> -->
+                </ul>
+            </section>
+
+            <h2 class="credits-title"><i>Performed By</i></h2>
+            <ul class="credits-list">
+                <li><span class="credit-num">06</span><span class="credit-name">Gia-Bao Vo Nhat</span></li>
+                <li><span class="credit-num">11</span><span class="credit-name">Hai-Dong Pham Ngoc</span></li>
+                <li><span class="credit-num">20</span><span class="credit-name">Dang-Khoa Nguyen</span></li>
+                <li><span class="credit-num">45</span><span class="credit-name">Thanh-Tuan Ton That</span></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="script.js?v=26"></script>
+</body>
+
+</html>
